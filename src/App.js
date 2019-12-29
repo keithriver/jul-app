@@ -8,8 +8,11 @@ function App() {
  
   return (
     
-    <div>
-     
+    <div className = 'header'>
+      <div className = 'logo'>jul-app</div>
+      <button className = 'headButton'> 
+        Login 
+      </button>
     </div>
   );
 }
