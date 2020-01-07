@@ -1,41 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
-
-
-
 class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      login: true
+      isLoggedIn: true
     };
     this.changeState = this.changeState.bind(this);
-  };
+  }
 
   changeState = () => {
     this.setState({
-      login: !this.state.login
+      isLoggedIn: !this.state.isLoggedIn
     });
   };
-  
+
   render() {
-  const { login } = this.state;
+    const { isLoggedIn } = this.state;
 
-  return (
-    
-    <div className = 'header'>
-      <div className = 'logo'>jul-app</div>
-      <button 
-      className = 'headButton'
-      onClick={this.changeState}
-      > 
-        {login ? "Login" : "Log Out"} 
-      </button>
-    </div>
-  );
-}
-
+    return (
+      <div className="header">
+        <div className="logo">jul-app</div>
+        <button className="headButton" onClick={this.changeState}>
+          {isLoggedIn ? "Login" : "Log Out"}
+        </button>
+        <div>{isLoggedIn ? <div>Welcome!</div> : null}</div>
+      </div>
+    );
+  }
 }
 export default App;
