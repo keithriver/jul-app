@@ -1,5 +1,5 @@
 .header {
-  background-color: black; 
+  background-color: black;
   height: 80px;
   color: #afffc3;
   font-size: 50px;
@@ -17,4 +17,44 @@
   background-color: #afffc3;
   font-size: 25px;
   padding: 0 15px;
+}
+
+.body {
+  background-color: #ffb0b5;
+  flex-grow: 7;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.footer {
+  background-color: black;
+  flex-grow: 1;
+  color: white;
+}
+
+.form {
+  background-color: #69b37c;
+  display: flex;
+  flex-direction: column;
+  margin-top: 200px;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.input {
+  display: flex;
+  padding: 5px;
+}
+
+.input input {
+  margin-right: 10px;
+  background-color: #ffb0b5;
+  border: 1px solid black;
 }
