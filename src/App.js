@@ -1,20 +1,51 @@
 import React from "react";
 import "./App.css";
 
+const credentials = [
+  {
+    username: "jul",
+    password: "Gohan"
+  }
+
+]
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: false
+      isLoggedIn: false,
+      username: "",
+      password: ""
+
     };
-    this.changeState = this.changeState.bind(this);
+    // this.changeState = this.changeState.bind(this);
+    this.saveInput = this.saveInput.bind(this);
+    this.saveInputPW = this.saveInputPW.bind(this);
   }
 
   changeState = () => {
-    this.setState({
-      isLoggedIn: !this.state.isLoggedIn
+    const found = credentials.find(item => {
+      return item.username === this.state.username && item.password === this.state.password
     });
+    if (found) {
+      this.setState({
+        isLoggedIn: !this.state.isLoggedIn
+      })
+    };
   };
+
+  saveInput(event) {
+    console.log(event);
+    this.setState({
+      username: event.target.value
+    })
+  }
+
+  saveInputPW(event) {
+    console.log(event);
+    this.setState({
+      password: event.target.value
+    })
+  }
 
   render() {
     const { isLoggedIn } = this.state;
@@ -23,22 +54,29 @@ class App extends React.Component {
       <div className="page">
         <div className="header">
           <div className="logo">jul-app</div>
-          <div>{isLoggedIn ? <div>Welcome!</div> : null}</div>
+          <div>{isLoggedIn ? <div>Welcome, {this.state.username}!</div> : null}</div>
           <button className="headButton" onClick={this.changeState}>
             {isLoggedIn ? "Logout" : "Login"}
           </button>
         </div>
         <div className="body">
-          <div className="form">
+          {!isLoggedIn ? <div className="form">
             <div className="input">
-              <input />
+              <input
+                id="username"
+                onChange={this.saveInput}
+                value={this.state.username} />
               <div>username</div>
             </div>
             <div className="input">
-              <input />
+              <input
+                id="password"
+                onChange={this.saveInputPW}
+                value={this.state.password} />
               <div>password</div>
             </div>
-          </div>
+          </div> : null}
+
         </div>
         <div className="footer">Footer</div>
       </div>
