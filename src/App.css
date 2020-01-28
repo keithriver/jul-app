@@ -6,6 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .logo {
@@ -25,6 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  overflow: auto;
 }
 
 .page {
@@ -57,4 +59,18 @@
   margin-right: 10px;
   background-color: #ffb0b5;
   border: 1px solid black;
+}
+
+.list {
+  width: 100%;
+
+}
+
+.list-item {
+  margin: 5px;
+}
+
+.list-item-header {
+  font-weight: bold;
+  color: rgb(88, 85, 85);
 }
