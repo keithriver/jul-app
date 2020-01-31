@@ -52,7 +52,6 @@ class App extends React.Component {
   render() {
     const { isLoggedIn } = this.state;
 
-
     return (
       <div className="page">
         <div className="header">
@@ -87,9 +86,17 @@ class App extends React.Component {
           ) : (
             <div className="list">
               {f.map(item => (
-                <div className="list-item"> 
-                <div className="list-item-header">{item.id}</div>
-                <div>protein : {item["nutrition-per-100g"] ? item["nutrition-per-100g"].protein : item["nutrition-per-100ml"].protein}</div>
+                <div className="list-item">
+                  <div className="bullet" />
+                  <div className="list-item-header">{item.id}</div>
+                  <div>
+                    protein :{" "}
+                    <span className="number">
+                      {item["nutrition-per-100g"]
+                        ? item["nutrition-per-100g"].protein
+                        : item["nutrition-per-100ml"].protein}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
