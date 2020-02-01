@@ -72,6 +72,7 @@
   padding-bottom: 20px;
   padding-top: 20px;
   position: relative;
+  cursor: pointer;
   /* border-bottom: 1px solid black; */
 }
 
@@ -82,10 +83,10 @@
 
 .bullet {
   position: absolute;
-  left: 3px;
-  top: 27px;
-  width: 10px;
-  height: 10px;
+  left: 6px;
+  top: 29px;
+  width: 9px;
+  height: 9px;
   background-color: black;
   border-radius: 50%;
 }
@@ -106,6 +107,6 @@
   height: 1px;
   background-color: black;
   position: absolute;
-  bottom: -10px;
+  bottom: -8px;
   left: 0px;
 }
