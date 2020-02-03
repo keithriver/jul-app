@@ -1,6 +1,9 @@
 import React from "react";
 import "./App.css";
 import f from "./food.json"; // ./ - current dir
+import { Login } from "./pages/login";
+import { List } from "./pages/list";
+import { Router } from "react-router-dom";
 
 const credentials = [
   {
@@ -12,7 +15,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoggedIn: true,
+      isLoggedIn: false,
       username: "",
       password: ""
     };
@@ -53,6 +56,7 @@ class App extends React.Component {
     const { isLoggedIn } = this.state;
 
     return (
+      <Router>
       <div className="page">
         <div className="header">
           <div className="logo">jul-app</div>
@@ -65,45 +69,19 @@ class App extends React.Component {
         </div>
         <div className="body">
           {!isLoggedIn ? (
-            <div className="form">
-              <div className="input">
-                <input
-                  id="username"
-                  onChange={this.saveInput}
-                  value={this.state.username}
-                />
-                <div>username</div>
-              </div>
-              <div className="input">
-                <input
-                  id="password"
-                  onChange={this.saveInputPW}
-                  value={this.state.password}
-                />
-                <div>password</div>
-              </div>
-            </div>
+            <Login
+              password={this.state.password}
+              saveInput={this.saveInput}
+              username={this.state.username}
+              saveInputPW={this.saveInputPW}
+            />
           ) : (
-            <div className="list">
-              {f.map(item => (
-                <div className="list-item">
-                  <div className="bullet" />
-                  <div className="list-item-header">{item.id}</div>
-                  <div>
-                    protein :{" "}
-                    <span className="number">
-                      {item["nutrition-per-100g"]
-                        ? item["nutrition-per-100g"].protein
-                        : item["nutrition-per-100ml"].protein}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <List f={f} />
           )}
         </div>
         <div className="footer">Footer</div>
       </div>
+      <Router>
     );
   }
 }
