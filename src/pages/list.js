@@ -1,21 +1,27 @@
 import React from "react";
-
-export const List = ({ f }) => {
+import { Link } from "react-router-dom";
+const grammsKey = "nutrition-per-100g";
+const mlKey = "nutrition-per-100ml";
+export const List = ({ food }) => {
   return (
     <div className="list">
-      {f.map(item => (
-        <div className="list-item">
+      {food.map(item => (
+        // ` = string literal, позволяет вставлять в строку переменные;
+        //  ${} - вставляет переменную
+        //
+        <Link to={`/${item.id}`} className="list-item" key={item.id}>
           <div className="bullet" />
           <div className="list-item-header">{item.id}</div>
           <div>
             protein :{" "}
             <span className="number">
-              {item["nutrition-per-100g"]
-                ? item["nutrition-per-100g"].protein
-                : item["nutrition-per-100ml"].protein}
+              {item[grammsKey]
+                ? // в JS не могут содержаться "-" в переменных, поэтому, чтобы обратиться к ключу объекта с тире, используется данный синтаксис (динамическое обращение по ключу)
+                  item[grammsKey].protein
+                : item[mlKey].protein}
             </span>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

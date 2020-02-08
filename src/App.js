@@ -1,9 +1,11 @@
 import React from "react";
 import "./App.css";
-import f from "./food.json"; // ./ - current dir
+import foodList from "./food.json"; // ./ - current dir
 import { Login } from "./pages/login";
 import { List } from "./pages/list";
-import { Router } from "react-router-dom";
+import { Item } from "./pages/item";
+import { Router, Switch, Route } from "react-router-dom";
+import history from "./history";
 
 const credentials = [
   {
@@ -24,7 +26,7 @@ class App extends React.Component {
     this.saveInputPW = this.saveInputPW.bind(this);
   }
 
-  changeState = () => {
+  handleLogin = () => {
     const found = credentials.find(item => {
       return (
         item.username === this.state.username &&
@@ -32,6 +34,8 @@ class App extends React.Component {
       );
     });
     if (found) {
+      console.log("smth");
+      history.push("/list");
       this.setState({
         isLoggedIn: !this.state.isLoggedIn
       });
@@ -46,7 +50,6 @@ class App extends React.Component {
   }
 
   saveInputPW(event) {
-    console.log(event);
     this.setState({
       password: event.target.value
     });
@@ -56,32 +59,41 @@ class App extends React.Component {
     const { isLoggedIn } = this.state;
 
     return (
-      <Router>
-      <div className="page">
-        <div className="header">
-          <div className="logo">jul-app</div>
-          <div>
-            {isLoggedIn ? <div>Welcome, {this.state.username}!</div> : null}
+      <Router history={history}>
+        <div className="page">
+          <div className="header">
+            <div className="logo">jul-app</div>
+            <div>
+              {isLoggedIn ? <div>Welcome, {this.state.username}!</div> : null}
+            </div>
+            <button className="headButton" onClick={this.handleLogin}>
+              {isLoggedIn ? "Logout" : "Login"}
+            </button>
           </div>
-          <button className="headButton" onClick={this.changeState}>
-            {isLoggedIn ? "Logout" : "Login"}
-          </button>
+          <div className="body">
+            <Switch>
+              <Route exact path="/">
+                <Login
+                  password={this.state.password}
+                  saveInput={this.saveInput}
+                  username={this.state.username}
+                  saveInputPW={this.saveInputPW}
+                />
+              </Route>
+              <Route path="/list">
+                <List food={foodList} />
+              </Route>
+              <Route path="/:"></Route>
+              {foodList.map(item => (
+                <Route path={`/${item.id}`}>
+                  <Item item={item} />
+                </Route>
+              ))}
+            </Switch>
+          </div>
+          <div className="footer">Footer</div>
         </div>
-        <div className="body">
-          {!isLoggedIn ? (
-            <Login
-              password={this.state.password}
-              saveInput={this.saveInput}
-              username={this.state.username}
-              saveInputPW={this.saveInputPW}
-            />
-          ) : (
-            <List f={f} />
-          )}
-        </div>
-        <div className="footer">Footer</div>
-      </div>
-      <Router>
+      </Router>
     );
   }
 }
