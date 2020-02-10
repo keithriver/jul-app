@@ -1,0 +1,30 @@
+.food-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 50px;
+  padding-top: 20px;
+}
+
+.food-name {
+  font-weight: bold;
+  font-size: 25px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+.food-parameter {
+  display: flex;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.label {
+}
+
+.value {
+  padding-left: 8px;
+  font-weight: bold;
+}
+.food-item-header {
+  padding: 5px;
+}
