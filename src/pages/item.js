@@ -18,8 +18,8 @@ export const Item = ({ item }) => {
   };
   return (
     <div className="food-item">
-      <div className="food-name">{item.name}</div>
-      <div>
+      <span className="food-name">{item.name}</span>
+      <div className="list-body">
         {Object.keys(nutritionParams).map(key => {
           return (
             <div className="food-parameter">
