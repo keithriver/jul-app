@@ -6,6 +6,7 @@ import { List } from "./pages/list";
 import { Item } from "./pages/item";
 import { Router, Switch, Route } from "react-router-dom";
 import history from "./history";
+import { Slack } from "./pages/slack";
 
 const credentials = [
   {
@@ -89,6 +90,9 @@ class App extends React.Component {
                   <Item item={item} />
                 </Route>
               ))}
+              <Route path="/slack">
+                <Slack />
+              </Route>
             </Switch>
           </div>
           <div className="footer">Footer</div>
