@@ -1,0 +1,164 @@
+.page {
+  width: 100%;
+  font-family: Slack-Larsseit, "Helvetica Neue", Helvetica, "Segoe UI", Tahoma,
+    Arial, sans-serif;
+}
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: solid 1px rgb(241, 235, 235);
+  height: 70px;
+  align-items: center;
+  position: sticky;
+}
+
+.inner {
+  max-width: 1150px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+}
+.right {
+  display: flex;
+  align-items: center;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.menuItem {
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: 500;
+}
+.logo {
+  font-size: 30px;
+  font-weight: 700;
+}
+.link,
+link:visited,
+link:active,
+link:hover {
+  text-decoration: none;
+  color: black;
+}
+.link:hover {
+  border-bottom: 1px solid #1264a3;
+  color: #1264a3;
+}
+.signIn {
+  margin-right: 15px;
+}
+.button {
+  border: none;
+  background-color: #611f69;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28px;
+  letter-spacing: 0.8px;
+  height: 42px;
+  width: 134px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #4a154b;
+}
+.billboard {
+  width: 100%;
+  height: 400px;
+  padding: 80px 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.billInner {
+  max-width: 1150px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.billHeader {
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: 0.8px;
+}
+.billLargeText {
+  padding: 20px 0;
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: -1.9px;
+}
+.billSmallText {
+  font-size: 19px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+}
+.billButtons {
+  padding: 25px 0;
+}
+.buttonViolet {
+  height: 58px;
+  background-color: #611f69;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  width: 180px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}
+.buttonViolet:hover {
+  background-color: #4a154b;
+}
+.buttonWhite {
+  margin-left: 10px;
+  height: 58px;
+  width: 180px;
+  background-color: white;
+  color: #611f69;
+  border: solid 1px #611f69;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+}
+.buttonWhite:hover {
+  border: solid 2px #611f69;
+}
+
+.vidHeader {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.8px;
+  margin: 20px 0;
+}
+.vidSubheader {
+  letter-spacing: 0.8px;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+.videoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-height: 640px;
+}
+.video {
+  max-height: 600px;
+}
+.vid {
+  max-width: 870px;
+}
